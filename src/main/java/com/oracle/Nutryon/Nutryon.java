@@ -4,10 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NutryonApplication {
+public class Nutryon {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NutryonApplication.class, args);
+		SpringApplication.run(Nutryon.class, args);
+
 	}
 
 }
