@@ -1,5 +1,6 @@
 package com.oracle.nutryon.service;
 
+<<<<<<< HEAD
 import com.oracle.nutryon.domain.entity.ItemRefeicao;
 import com.oracle.nutryon.domain.entity.Refeicao;
 import com.oracle.nutryon.web.controller.dto.TotaisMacrosDTO;
@@ -28,4 +29,8 @@ public class ServicoNutricao {
   }
 
   private BigDecimal scale(BigDecimal v) { return v.setScale(2, HALF_UP); }
+=======
+public class ServicoNutricao {
+    
+>>>>>>> 9147ed54a9dee00ea1a3b023c3228242dd7b0912
 }

@@ -1,5 +1,6 @@
 package com.oracle.nutryon.domain.entity;
 
+<<<<<<< HEAD
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
@@ -31,4 +32,8 @@ public class ItemRefeicao {
   public void setIngrediente(Ingrediente ingrediente) { this.ingrediente = ingrediente; }
   public BigDecimal getQuantidade() { return quantidade; }
   public void setQuantidade(BigDecimal quantidade) { this.quantidade = quantidade; }
+=======
+public class ItemRefeicao {
+    
+>>>>>>> 9147ed54a9dee00ea1a3b023c3228242dd7b0912
 }
