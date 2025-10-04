@@ -1,5 +1,8 @@
-package com.oracle.Nutryon.web.controller.dto;
+package com.oracle.nutryon.web.controller.dto;
 
-public class ItemRefeicaoDTO {
-    
-}
+import java.math.BigDecimal;
+
+public record ItemRefeicaoDTO(
+  Long ingredienteId,
+  BigDecimal quantidade
+) {}

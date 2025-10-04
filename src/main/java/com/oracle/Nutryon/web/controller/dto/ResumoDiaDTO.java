@@ -1,5 +1,10 @@
-package com.oracle.Nutryon.web.controller.dto;
+package com.oracle.nutryon.web.controller.dto;
 
-public class ResumoDiaDTO {
-    
+import java.time.LocalDate;
+
+public record ResumoDiaDTO(
+  LocalDate data,
+  TotaisMacrosDTO totais
+) {
+
 }

@@ -1,5 +1,13 @@
-package com.oracle.Nutryon.web.controller.dto;
+package com.oracle.nutryon.web.controller.dto;
 
-public class TotaisMacrosDTO {
+import java.math.BigDecimal;
+
+public record TotaisMacrosDTO(
+
+  BigDecimal kcal,
+  BigDecimal proteina,
+  BigDecimal carbo,
+  BigDecimal gordura
+) {
     
 }

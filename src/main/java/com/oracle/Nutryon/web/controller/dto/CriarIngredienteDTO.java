@@ -1,5 +1,13 @@
-package com.oracle.Nutryon.web.controller.dto;
+package com.oracle.nutryon.web.controller.dto;
 
-public class CriarIngredienteDTO {
-    
-}
+import com.oracle.nutryon.domain.enums.UnidadeBase;
+import java.math.BigDecimal;
+
+public record CriarIngredienteDTO(
+  String nome,
+  UnidadeBase unidadeBase,
+  BigDecimal kcalPor100,
+  BigDecimal proteinaPor100,
+  BigDecimal carboPor100,
+  BigDecimal gorduraPor100
+) {}
