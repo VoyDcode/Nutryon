@@ -1,5 +1,6 @@
 package com.oracle.nutryon.web.controller.dto;
 
-public class CriarUsuarioDTO {
-    
-}
+public record CriarUsuarioDTO(
+  String nome,
+  String email
+) {}

@@ -3,7 +3,6 @@ package com.oracle.nutryon.domain.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
-<<<<<<< HEAD
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
@@ -18,7 +17,6 @@ public class Usuario {
   @Column(unique = true)
   private String email;
 
-  
   public Long getId() { 
     return id; }
 
@@ -36,15 +34,4 @@ public class Usuario {
 
   public void setEmail(String email) { 
     this.email = email; }
-=======
-@Entity @Table(name = "usuarios")
-public class Usuario {
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-
-  @NotBlank private String nome;
-  @Email @NotBlank @Column(unique = true) private String email;
-
-  // getters/setters
->>>>>>> 9147ed54a9dee00ea1a3b023c3228242dd7b0912
 }
