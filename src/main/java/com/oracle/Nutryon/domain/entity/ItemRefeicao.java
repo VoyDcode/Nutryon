@@ -31,4 +31,5 @@ public class ItemRefeicao {
   public void setIngrediente(Ingrediente ingrediente) { this.ingrediente = ingrediente; }
   public BigDecimal getQuantidade() { return quantidade; }
   public void setQuantidade(BigDecimal quantidade) { this.quantidade = quantidade; }
+  
 }
