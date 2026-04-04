@@ -1,8 +1,8 @@
 package com.oracle.nutryon.web.controller;
 
-import com.oracle.nutryon.domain.entity.Ingrediente;
-import com.oracle.nutryon.repository.IngredienteRepositorio;
+import com.oracle.nutryon.service.IngredienteService;
 import com.oracle.nutryon.web.controller.dto.CriarIngredienteDTO;
+import com.oracle.nutryon.web.controller.dto.IngredienteViewDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,22 +12,16 @@ import java.util.List;
 @RequestMapping("/api/ingredientes")
 public class IngredienteControlador {
 
-  private final IngredienteRepositorio repo;
-  public IngredienteControlador(IngredienteRepositorio repo) { this.repo = repo; }
+  private final IngredienteService service;
+  
+  public IngredienteControlador(IngredienteService service) { this.service = service; }
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Ingrediente create(@Valid @RequestBody CriarIngredienteDTO dto){
-    var ing = new Ingrediente();
-    ing.setNome(dto.nome());
-    ing.setUnidadeBase(dto.unidadeBase());
-    ing.setKcalPor100(dto.kcalPor100());
-    ing.setProteinaPor100(dto.proteinaPor100());
-    ing.setCarboPor100(dto.carboPor100());
-    ing.setGorduraPor100(dto.gorduraPor100());
-    return repo.save(ing);
+  public IngredienteViewDTO create(@Valid @RequestBody CriarIngredienteDTO dto){
+    return service.create(dto);
   }
 
   @GetMapping
-  public List<Ingrediente> findAll(){ return repo.findAll(); }
+  public List<IngredienteViewDTO> findAll(){ return service.findAll(); }
 }

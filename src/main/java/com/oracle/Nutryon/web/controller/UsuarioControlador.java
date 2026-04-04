@@ -1,8 +1,8 @@
 package com.oracle.nutryon.web.controller;
 
-import com.oracle.nutryon.domain.entity.Usuario;
-import com.oracle.nutryon.repository.UsuarioRepositorio;
+import com.oracle.nutryon.service.UsuarioService;
 import com.oracle.nutryon.web.controller.dto.CriarUsuarioDTO;
+import com.oracle.nutryon.web.controller.dto.UsuarioViewDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,21 +13,18 @@ import java.util.List;
 @RequestMapping("/api/usuarios")
 public class UsuarioControlador {
 
-  private final UsuarioRepositorio repo;
+  private final UsuarioService service;
 
-  public UsuarioControlador(UsuarioRepositorio repo) { this.repo = repo; }
+  public UsuarioControlador(UsuarioService service) { this.service = service; }
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Usuario create(@Valid @RequestBody CriarUsuarioDTO dto){
-    var u = new Usuario();
-    u.setNome(dto.nome());
-    u.setEmail(dto.email());
-    return repo.save(u);
+  public UsuarioViewDTO create(@Valid @RequestBody CriarUsuarioDTO dto){
+    return service.create(dto);
   }
 
   @GetMapping
-  public List<Usuario> findAll(){ return repo.findAll(); }
+  public List<UsuarioViewDTO> findAll(){ return service.findAll(); }
 }
 
 
