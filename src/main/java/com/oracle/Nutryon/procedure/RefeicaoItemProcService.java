@@ -1,4 +1,4 @@
-package br.com.nutryon.procedure;
+package com.oracle.nutryon.procedure;
 
 import java.util.Map;
 import org.springframework.jdbc.core.JdbcTemplate;

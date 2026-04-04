@@ -43,6 +43,12 @@
 			<scope>test</scope>
 		</dependency>
 
+    <!-- JDBC starter for calling stored procedures via SimpleJdbcCall -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+
 		<!-- JPA (traz jakarta.persistence) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
