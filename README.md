@@ -1,5 +1,5 @@
 # Nutryon
-- **Integrantes:** Renato (RM560928) • Victor (RM560087)
+- **Integrantes:** Renato (RM560928) • Victor (RM560087) • Luan Noqueli Klochko(RM560313) • Lucas Higuti Fontanezi (RM561120)
 
 ## 🎯 Objetivo do Projeto
 O **Nutryon** é um backend em **Spring Boot** que permite **planejar refeições ao longo da semana** e **calcular automaticamente calorias e macronutrientes** (proteína, carboidrato, gordura) com base em um **banco de ingredientes** (valores por 100 g/ml).  

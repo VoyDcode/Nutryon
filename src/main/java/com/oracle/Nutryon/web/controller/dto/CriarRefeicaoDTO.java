@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public record CriarRefeicaoDTO(
-  @NotNull Long usuarioId,
   @NotNull LocalDate data,
   @NotNull TipoRefeicao tipo,
   @NotNull @Size(min = 1) List<@Valid ItemRefeicaoDTO> itens

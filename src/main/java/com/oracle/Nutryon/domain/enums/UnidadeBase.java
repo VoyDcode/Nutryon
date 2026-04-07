@@ -4,5 +4,6 @@ public enum UnidadeBase {
     GRAMA,
     KILOGRAMA,
     LITRO,
-    ML
+    ML,
+    UNID
 }

@@ -32,8 +32,7 @@ public class RefeicaoService {
     }
 
     @Transactional
-    public TotaisMacrosDTO create(CriarRefeicaoDTO dto) {
-        var usuario = usuarios.findById(dto.usuarioId()).orElseThrow();
+    public TotaisMacrosDTO create(CriarRefeicaoDTO dto, com.oracle.nutryon.domain.entity.Usuario usuario) {
         var refeicao = new Refeicao();
         refeicao.setUsuario(usuario);
         refeicao.setData(dto.data());
