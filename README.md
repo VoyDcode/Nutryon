@@ -1,77 +1,88 @@
-# Nutryon
-- **Integrantes:** Renato (RM560928) • Victor (RM560087) • Luan Noqueli Klochko(RM560313) • Lucas Higuti Fontanezi (RM561120)
+# Nutryon - Backend API 🚀
+
+> Sistema inteligente de planejamento nutricional e controle de macronutrientes.
+
+---
+
+## 👥 Integrantes e RMs
+*   **Renato** — RM560928
+*   **Victor** — RM560087
+*   **Luan Noqueli Klochko** — RM560313
+*   **Lucas Higuti Fontanezi** — RM561120
+
+---
 
 ## 🎯 Objetivo do Projeto
-O **Nutryon** é um backend em **Spring Boot** que permite **planejar refeições ao longo da semana** e **calcular automaticamente calorias e macronutrientes** (proteína, carboidrato, gordura) com base em um **banco de ingredientes** (valores por 100 g/ml).  
-Foco: simplicidade, entidades relacionais claras e boas práticas de validação.
+O **Nutryon** é uma solução robusta em **Spring Boot** desenvolvida para auxiliar no planejamento de refeições semanais. O sistema calcula automaticamente calorias e macronutrientes (proteína, carboidrato e gordura) com base em um banco de dados de ingredientes normalizado, permitindo que usuários monitorem sua dieta de forma técnica e precisa.
 
 ---
 
-## 🧱 Arquitetura & Stack
-- **Linguagem:** Java 21  
-- **Framework:** Spring Boot 3.5.6  
-- **Módulos:** Spring Web, Spring Data JPA, Bean Validation, Lombok  
-- **Banco Relacional:** Oracle (FIAP)  
-- **Driver:** `ojdbc11`  
-- **Build:** Maven
+## 🔗 Projetos Conectados (Ecosistema)
+Esta API faz parte de uma solução Full-Stack. O cliente de visualização pode ser encontrado no link abaixo:
+
+*   **Frontend (Angular):** [Nutryon-angular](https://github.com/VoyDcode/Nutryon-angular)
 
 ---
 
-## 🗂️ Modelagem (Visão Geral)
-Entidades principais:
-- **Usuario** (`usuarios`)
-  - `id`, `nome`, `email`
-- **Ingrediente** (`ingredientes`)
-  - `id`, `nome` (único), `unidadeBase` (`GRAMA`, `KILOGRAMA`, `LITRO`, `ML`)
-  - **valores por 100**: `kcalPor100`, `proteinaPor100`, `carboPor100`, `gorduraPor100`
-- **Refeicao** (`refeicoes`)
-  - `id`, `usuario`, `data`, `tipo` (`CAFE`, `ALMOCO`, `JANTAR`, `LANCHE`)
-  - **restrição única**: (`usuario_id`, `data`, `tipo`)
-- **ItemRefeicao** (`itens_refeicao`)
-  - `id`, `refeicao`, `ingrediente`, `quantidade` *(g ou ml conforme ingrediente)*
-
-**Cálculo de macros:** serviço `ServicoNutricao` soma os macros por item aplicando fator `quantidade / 100`.
-
-
-## Diagramas
-- ### UML
- <img width="805" height="664" alt="Captura de tela 2025-10-09 013118" src="https://github.com/user-attachments/assets/c131a6b7-04be-43d1-ae00-1b5afb20fde8" />
-
-
-### DER
- https://drive.google.com/file/d/184qNsa_qiU7sJK-Yl02szGTKTeVdRCMz/view?usp=sharing 
-
+## 🧱 Arquitetura e Tech Stack
+*   **Linguagem:** Java 17
+*   **Framework:** Spring Boot 3.5.x
+*   **Segurança:** Spring Security + JWT (Auth0)
+*   **Persistência:** Spring Data JPA / Hibernate
+*   **Migrations:** Flyway DB
+*   **Banco de Dados:** Oracle Database (OJDBC11)
+*   **Documentação:** Swagger UI / OpenAPI 3
 
 ---
 
-## 🔌 Endpoints (REST)
+## 🛠️ Instruções de Instalação e Execução
 
-### 👤 Usuários
-- **POST** `/api/usuarios`  
-  **Body**:
-  ```json
-  { "nome": "Victor", "email": "victor@example.com" }
-<img width="1918" height="1030" alt="Captura de tela 2025-10-09 043829" src="https://github.com/user-attachments/assets/1639320d-3697-44a9-801f-c3b34cf0b2e4" />
+### Pré-requisitos
+*   **Java 17** ou superior instalado.
+*   **Maven 3.x** instalado.
+*   Acesso ao banco de dados **Oracle FIAP** (ou uma instância local configurada).
 
-> - **GET**
- 
-<img width="1918" height="1028" alt="Captura de tela 2025-10-09 043913" src="https://github.com/user-attachments/assets/ae2745a0-d392-4612-80c4-26d5cf1d6732" />
-
-### tratamento de Duplicidade
-<img width="1917" height="1001" alt="Captura de tela 2025-10-09 050628" src="https://github.com/user-attachments/assets/932e25b6-2e3b-4edf-bfb3-fa3e85479378" />
-
-
-
-# Conexão com banco de dados
-  ```properties
-spring.datasource.url=jdbc:oracle:thin:@//<HOST>:<PORT>/<SERVICE_NAME>
-spring.datasource.username=<USUARIO>
-spring.datasource.password=<SENHA>
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.OracleDialect
-spring.jpa.show-sql=true 
+### Passo 1: Configuração do Banco de Dados
+Certifique-se de que o arquivo `src/main/resources/application.properties` está configurado corretamente com as suas credenciais da FIAP:
+```properties
+spring.datasource.url=jdbc:oracle:thin:@//oracle.fiap.com.br:1521/ORCL
+spring.datasource.username=seu_rm
+spring.datasource.password=sua_senha
 ```
 
-# Vídeo — Proposta Tecnológica, Público-alvo e Problema
-> link ➡ https://drive.google.com/drive/folders/1JytEqJumGWoHfoypQXreFViqLMSov2mx?usp=sharing
+### Passo 2: Instalação das Dependências
+No terminal, na raiz do projeto, execute:
+```bash
+./mvnw clean install
+```
 
+### Passo 3: Execução da Aplicação
+Para subir o servidor:
+```bash
+./mvnw spring-boot:run
+```
+O servidor iniciará por padrão na porta **8080**.
+
+---
+
+## 📖 Acesso e Documentação
+
+### Documentação Interativa (Swagger)
+Assim que a aplicação estiver rodando, acesse a interface do Swagger para testar os endpoints em tempo real:
+👉 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+### Fluxo de Autenticação para Testes
+1.  **Registro:** Utilize o endpoint `POST /auth/register` para criar um usuário (ex: role `ADMIN`).
+2.  **Login:** Utilize `POST /auth/login` para receber seu **Bearer Token**.
+3.  **Autorização:** No Swagger, clique no botão **Authorize 🔒** no topo da página e cole o token recebido.
+
+---
+
+## 📽️ Demonstração (Vídeo)
+Apresentação da proposta tecnológica, público-alvo e solução do problema:
+👉 [Link para o Vídeo no Google Drive](https://drive.google.com/drive/folders/1JytEqJumGWoHfoypQXreFViqLMSov2mx?usp=sharing)
+
+---
+
+## 🐳 Docker (Em Breve)
+A aplicação está sendo preparada para conteinerização. O arquivo `docker-compose.yml` será disponibilizado na próxima etapa para facilitar o deploy unificado (Backend + Frontend + DB).
