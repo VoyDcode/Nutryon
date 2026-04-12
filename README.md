@@ -77,7 +77,7 @@ Assim que a aplicação estiver rodando, acesse a interface do Swagger para test
 
 ## 📽️ Demonstração (Vídeo)
 Apresentação da proposta tecnológica, público-alvo e solução do problema:
-👉 [Link para o Vídeo no Google Drive]([https://drive.google.com/drive/folders/1JytEqJumGWoHfoypQXreFViqLMSov2mx?usp=sharing](https://youtu.be/ro4DpbkZ_bY))
+👉 [Link para o Vídeo no youtube]([https://drive.google.com/drive/folders/1JytEqJumGWoHfoypQXreFViqLMSov2mx?usp=sharing](https://youtu.be/ro4DpbkZ_bY))
 
 ---
 
