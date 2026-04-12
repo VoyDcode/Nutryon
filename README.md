@@ -61,7 +61,6 @@ Para subir o servidor:
 ./mvnw spring-boot:run
 ```
 O servidor iniciará por padrão na porta **8080**.
-
 ---
 
 ## 📖 Acesso e Documentação
