@@ -42,7 +42,6 @@ Esta API faz parte de uma solução Full-Stack. O cliente de visualização pode
 *   Acesso ao banco de dados **Oracle FIAP** (ou uma instância local configurada).
 
 ### Passo 1: Configuração do Banco de Dados
-Certifique-se de que o arquivo `src/main/resources/application.properties` está configurado corretamente com as suas credenciais da FIAP:
 ```properties
 spring.datasource.url=jdbc:oracle:thin:@//oracle.fiap.com.br:1521/ORCL
 spring.datasource.username=seu_rm
