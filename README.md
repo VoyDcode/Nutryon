@@ -9,7 +9,6 @@
 *   **Victor** — RM560087
 *   **Luan Noqueli Klochko** — RM560313
 *   **Lucas Higuti Fontanezi** — RM561120
-
 ---
 
 ## 🎯 Objetivo do Projeto
