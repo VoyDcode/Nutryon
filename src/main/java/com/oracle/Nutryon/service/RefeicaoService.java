@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -32,7 +33,9 @@ public class RefeicaoService {
     }
 
     @Transactional
-    public TotaisMacrosDTO create(CriarRefeicaoDTO dto, com.oracle.nutryon.domain.entity.Usuario usuario) {
+    public RefeicaoCriadaDTO create(CriarRefeicaoDTO dto, Long usuarioId) {
+        var usuario = usuarios.findById(usuarioId)
+                .orElseThrow(() -> new NoSuchElementException("Usuário não encontrado: " + usuarioId));
         var refeicao = new Refeicao();
         refeicao.setUsuario(usuario);
         refeicao.setData(dto.data());
@@ -48,7 +51,7 @@ public class RefeicaoService {
         });
 
         var salva = refeicoes.save(refeicao);
-        return nutricao.calculateTotals(salva);
+        return new RefeicaoCriadaDTO(salva.getId(), nutricao.calculateTotals(salva));
     }
 
     @Transactional(readOnly = true)

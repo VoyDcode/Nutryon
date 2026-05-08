@@ -25,5 +25,6 @@ public class NutryonAplicacao {
                     .type(SecurityScheme.Type.HTTP)
                     .scheme("bearer")
                     .bearerFormat("JWT")));
+                    
   }
 }

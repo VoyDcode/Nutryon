@@ -4,12 +4,14 @@ import java.math.BigDecimal;
 
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.oracle.nutryon.procedure.RefeicaoItemProcedureServico;
@@ -20,7 +22,7 @@ import com.oracle.nutryon.procedure.RefeicaoItemProcedureServico;
  * atualizar a quantidade e remover itens de uma refeição.
  */
 @RestController
-@RequestMapping("/api/proc/refeicoes")
+@RequestMapping("/api/procedimentos/refeicoes")
 public class RefeicaoItemProcedureControlador {
 
   private final RefeicaoItemProcedureServico service;
@@ -49,6 +51,7 @@ public class RefeicaoItemProcedureControlador {
    * @return modelo vazio com links de update/delete
    */
   @PostMapping("/{id}/itens")
+  @ResponseStatus(HttpStatus.CREATED)
   public EntityModel<Void> add(@PathVariable long id, @RequestBody ItemProcDTO in) {
     service.insert(id, in.idIngrediente(), in.qtde().doubleValue(), in.idUnidade());
     return EntityModel.of(null,

@@ -4,9 +4,11 @@ import com.oracle.nutryon.service.UsuarioService;
 import com.oracle.nutryon.web.controller.dto.CriarUsuarioDTO;
 import com.oracle.nutryon.web.controller.dto.UsuarioViewDTO;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -18,9 +20,14 @@ public class UsuarioControlador {
   public UsuarioControlador(UsuarioService service) { this.service = service; }
 
   @PostMapping
-  @ResponseStatus(HttpStatus.CREATED)
-  public UsuarioViewDTO create(@Valid @RequestBody CriarUsuarioDTO dto){
-    return service.create(dto);
+  public ResponseEntity<UsuarioViewDTO> create(@Valid @RequestBody CriarUsuarioDTO dto) {
+    UsuarioViewDTO criado = service.create(dto);
+    URI location = ServletUriComponentsBuilder
+            .fromCurrentRequest()
+            .path("/{id}")
+            .buildAndExpand(criado.id())
+            .toUri();
+    return ResponseEntity.created(location).body(criado);
   }
 
   @GetMapping

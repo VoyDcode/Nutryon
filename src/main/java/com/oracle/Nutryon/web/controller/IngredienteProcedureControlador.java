@@ -5,10 +5,12 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
   procedures armazenadas em Oracle. Esses endpoints exercitam as
   procedures PRC_INGREDIENTE_INS, PRC_INGREDIENTE_UPD e
   PRC_INGREDIENTE_DEL. */
-  
+
 @RestController
-@RequestMapping("/api/proc/ingredientes")
+@RequestMapping("/api/procedimentos/ingredientes")
 public class IngredienteProcedureControlador {
 
   private final IngredienteProcService service;
@@ -43,6 +45,7 @@ public class IngredienteProcedureControlador {
     @return modelo com o id gerado e links de update/delete
    */
   @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
   public EntityModel<Long> create(@RequestBody IngredienteProcDTO in) {
     long id = service.insert(in.nome(), in.categoriaId());
     return EntityModel.of(id,

@@ -1,4 +1,4 @@
-package com.oracle.Nutryon;
+package com.oracle.nutryon;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

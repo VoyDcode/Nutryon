@@ -4,11 +4,13 @@ import com.oracle.nutryon.domain.entity.Usuario;
 import com.oracle.nutryon.service.RefeicaoService;
 import com.oracle.nutryon.web.controller.dto.*;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.time.LocalDate;
 import static org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -24,9 +26,15 @@ public class RefeicaoControlador {
   }
 
   @PostMapping
-  @ResponseStatus(HttpStatus.CREATED)
-  public TotaisMacrosDTO create(@Valid @RequestBody CriarRefeicaoDTO dto, @AuthenticationPrincipal Usuario usuario){
-    return service.create(dto, usuario);
+  public ResponseEntity<RefeicaoCriadaDTO> create(@Valid @RequestBody CriarRefeicaoDTO dto,
+                                                   @AuthenticationPrincipal Usuario usuario) {
+    RefeicaoCriadaDTO criado = service.create(dto, usuario.getId());
+    URI location = ServletUriComponentsBuilder
+            .fromCurrentRequest()
+            .path("/{id}")
+            .buildAndExpand(criado.id())
+            .toUri();
+    return ResponseEntity.created(location).body(criado);
   }
 
   @GetMapping
