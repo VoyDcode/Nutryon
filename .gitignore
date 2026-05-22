@@ -31,3 +31,25 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Credenciais e segredos — NUNCA commitar ###
+.env
+*.env
+application-local.properties
+application-dev.properties
+wallet/
+Wallet_*/
+*.p12
+*.jks
+*.keystore
+*.pem
+*.key
+cwallet.sso
+ewallet.p12
+ojdbc.properties
+tnsnames.ora
+sqlnet.ora
+
+### Logs ###
+*.log
+logs/

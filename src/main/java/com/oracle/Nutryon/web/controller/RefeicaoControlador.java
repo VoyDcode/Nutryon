@@ -56,4 +56,11 @@ public class RefeicaoControlador {
                                  @PathVariable @DateTimeFormat(iso = ISO.DATE) LocalDate segunda){
     return service.week(usuario.getId(), segunda);
   }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> delete(@PathVariable Long id,
+                                     @AuthenticationPrincipal Usuario usuario) {
+    service.delete(id, usuario.getId());
+    return ResponseEntity.noContent().build();
+  }
 }

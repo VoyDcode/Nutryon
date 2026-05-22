@@ -98,6 +98,23 @@
 			<version>23.3.0.23.09</version>
 		</dependency>
 
+		<!-- Oracle PKI — necessário para abrir wallet SSO (cwallet.sso) com TLS -->
+		<dependency>
+			<groupId>com.oracle.database.security</groupId>
+			<artifactId>oraclepki</artifactId>
+			<version>23.3.0.23.09</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.database.security</groupId>
+			<artifactId>osdt_cert</artifactId>
+			<version>21.9.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.database.security</groupId>
+			<artifactId>osdt_core</artifactId>
+			<version>21.9.0.0</version>
+		</dependency>
+
 		<!-- Flyway for Migrations -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>

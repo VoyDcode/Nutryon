@@ -88,6 +88,16 @@ public class RefeicaoService {
         return nutricao.calculateTotals(agreg);
     }
 
+    @Transactional
+    public void delete(Long refeicaoId, Long usuarioId) {
+        var refeicao = refeicoes.findById(refeicaoId)
+                .orElseThrow(() -> new NoSuchElementException("Refeição não encontrada: " + refeicaoId));
+        if (!refeicao.getUsuario().getId().equals(usuarioId)) {
+            throw new org.springframework.security.access.AccessDeniedException("Acesso negado a esta refeição");
+        }
+        refeicoes.delete(refeicao);
+    }
+
     @Transactional(readOnly = true)
     public List<ResumoDiaDTO> week(Long usuarioId, LocalDate segunda) {
         LocalDate domingo = segunda.plusDays(6);
