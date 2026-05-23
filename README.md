@@ -262,23 +262,26 @@ http://localhost:8080/swagger-ui/index.html
 
 ## 12. Como realizar deploy em nuvem
 
-### Backend (Azure Web App via GitHub Actions)
+### Backend (Azure App Service via Azure DevOps Pipelines)
 
-O deploy é automático via GitHub Actions ao fazer push para `main`:
+O deploy é automático via **Azure DevOps Pipelines** ao fazer push para `main` (`azure-pipelines.yml`):
 
-```yaml
-# .github/workflows/main_nutryon.yml
-# 1. Build: mvn clean install -DskipTests → gera .jar
-# 2. Deploy: azure/webapps-deploy → Azure Web App "Nutryon"
+```
+push → main
+  ↓
+Azure DevOps CI stage
+  1. Maven@4: mvn package -DskipTests=false → testes unitários + .jar
+  2. PublishBuildArtifacts → artefato "backend-jar"
+  ↓
+Azure DevOps CD stage (environment "producao" — requer aprovação manual)
+  3. AzureWebApp@1 → deploy do .jar no Azure App Service "Nutryon"
 ```
 
-Pré-requisitos no Azure:
-1. Azure Web App criado (App Service Plan, Java 17)
-2. Secrets configurados no GitHub:
-   - `AZUREAPPSERVICE_CLIENTID_*`
-   - `AZUREAPPSERVICE_TENANTID_*`
-   - `AZUREAPPSERVICE_SUBSCRIPTIONID_*`
-3. Application Settings configuradas no App Service (seção 8)
+Pré-requisitos no Azure DevOps:
+1. Service Connection `Azure-FIAP` configurada (Workload Identity Federation)
+2. Environment `producao` criado com approval gate
+3. Variável de pipeline `AZURE_SUBSCRIPTION = Azure-FIAP`
+4. Application Settings configuradas no App Service (seção 8)
 
 ---
 
