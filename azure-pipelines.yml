@@ -14,7 +14,7 @@ stages:
   - job: BuildTest
     displayName: 'Maven Build + Testes unitarios'
     steps:
-    - task: Maven@3
+    - task: Maven@4
       displayName: 'mvn package'
       inputs:
         mavenPomFile: 'pom.xml'
@@ -48,4 +48,3 @@ stages:
               appType: 'webAppLinux'
               appName: 'nutryon-f8h2e8bqa0d7gjbx'
               package: '$(Pipeline.Workspace)/backend-jar/*.jar'
-              runtimeStack: 'JAVA|17-java17'
