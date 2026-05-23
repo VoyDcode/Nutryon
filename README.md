@@ -95,8 +95,8 @@ flowchart TD
 | Frontend | Azure Static Web Apps |
 | Backend | Azure Web App (App Service) |
 | Banco de Dados | Oracle Cloud Autonomous Database (Always Free) |
-| CI/CD Backend | GitHub Actions → Azure Web App |
-| CI/CD Frontend | GitHub Actions → Azure Static Web Apps |
+| CI/CD Backend | Azure DevOps Pipelines (CI: Maven build + testes, CD: deploy App Service) |
+| CI/CD Frontend | Azure DevOps Pipelines (CI: ng build + artifact, CD: deploy Static Web Apps) |
 | Documentação API | Swagger UI / SpringDoc OpenAPI |
 
 ---
