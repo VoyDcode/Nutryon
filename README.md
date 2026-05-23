@@ -1,5 +1,5 @@
-# 1º Checkpoint – 2º Semestre: DevOps Tools & Cloud Computing
-## Equipe DimDim — Projeto Nutryon (Backend API)
+# 3º Sprint – 2º Semestre: Java & DevOps Tools e Cloud Computing
+## Projeto Nutryon (Backend API)
 
 ---
 
