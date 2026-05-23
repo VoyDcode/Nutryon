@@ -302,21 +302,21 @@ Pré-requisitos no Azure:
 
 ## 14. Testes realizados em nuvem
 
-> Substitua as URLs abaixo pelos endereços reais após o deploy em nuvem.
+> Testes executados em 23/05/2026 com o sistema completamente em nuvem (sem localhost).
 
 | Teste | Método | URL | Ambiente | Resultado esperado | Resultado obtido | Status |
 |---|---|---|---|---|---|---|
-| Health check | GET | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/health | Cloud | `nutryon-ok` | `nutryon-ok` | A verificar |
-| Swagger UI | GET | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/swagger-ui/index.html | Cloud | Interface carregada | Interface carregada | A verificar |
-| Registro | POST | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/auth/register | Cloud | `201 Created` | `201 Created` | A verificar |
-| Login | POST | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/auth/login | Cloud | Token JWT | Token JWT | A verificar |
-| Criar ingrediente | POST | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/api/ingredientes | Cloud | `201 Created` | `201 Created` | A verificar |
-| Criar refeição | POST | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/api/refeicoes | Cloud | `201 Created` + macros | `201 Created` + macros | A verificar |
-| Listagem cloud | GET | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/api/refeicoes | Cloud | `200 OK` + lista | `200 OK` + lista | A verificar |
-| Persistência no banco | Verificação no Oracle Cloud | Console OCI / SQL Worksheet | Cloud | Dados inseridos visíveis | Dados visíveis | A verificar |
-| Frontend → Backend | GET | https://ashy-ground-044d2c50f.azurestaticapps.net | Cloud | Interface carregada e funcional | Interface funcional | A verificar |
+| Health check | GET | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/health | Cloud | `nutryon-ok` | `nutryon-ok` | Aprovado |
+| Swagger UI | GET | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/swagger-ui/index.html | Cloud | Interface carregada | Interface carregada | Aprovado |
+| Registro | POST | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/auth/register | Cloud | `201 Created` | `201 Created` | Aprovado |
+| Login | POST | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/auth/login | Cloud | Token JWT | Token JWT retornado | Aprovado |
+| Criar ingrediente | POST | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/api/ingredientes | Cloud | `201 Created` | `201 Created` | Aprovado |
+| Criar refeição | POST | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/api/refeicoes | Cloud | `201 Created` + macros | `201 Created` + macros calculados | Aprovado |
+| Listagem cloud | GET | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/api/refeicoes | Cloud | `200 OK` + lista | `200 OK` + lista de refeições | Aprovado |
+| Persistência no banco | Verificação no Oracle Cloud | Console OCI / SQL Worksheet | Cloud | Dados inseridos visíveis | Dados persistidos no Oracle Cloud Autonomous DB | Aprovado |
+| Frontend → Backend | GET | https://ashy-ground-044d2c50f2.azurestaticapps.net | Cloud | Interface carregada e funcional | Login, cadastro, criação de refeição funcionais | Aprovado |
 
-**Nota:** Preencha a coluna "Resultado obtido" e altere o Status para "Aprovado" após realizar os testes em nuvem. Inclua prints/capturas no vídeo de apresentação.
+**Evidências no vídeo de apresentação:** login com URL pública visível, criação de refeição, dados refletindo no Oracle Cloud.
 
 ---
 
