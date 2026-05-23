@@ -47,4 +47,5 @@ stages:
               azureSubscription: '$(AZURE_SUBSCRIPTION)'
               appType: 'webAppLinux'
               appName: 'nutryon-f8h2e8bqa0d7gjbx'
+              resourceGroupName: 'nutryon-rg'
               package: '$(Pipeline.Workspace)/backend-jar/*.jar'
