@@ -1,4 +1,4 @@
-# 3º Sprint – 2º Semestre: Java & DevOps Tools e Cloud Computing
+# 4º Sprint – 2º Semestre: Java & DevOps Tools e Cloud Computing
 ## Projeto Nutryon (Backend API)
 
 ---
@@ -333,7 +333,7 @@ As evidências dos testes em nuvem são demonstradas no vídeo de apresentação
 - Verificação da persistência no Oracle Cloud (SQL Worksheet ou logs)
 - Confirmação de que não é localhost (URL pública visível)
 
-Link do vídeo: [A preencher após gravação]
+Link do vídeo: https://youtu.be/cGqSQxjYnY0
 
 ---
 
@@ -375,7 +375,7 @@ Verificar se `CORS_ALLOWED_ORIGINS` inclui a URL exata do frontend Azure Static 
 | Backend em nuvem (Azure) | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net |
 | Frontend em nuvem (Azure) | https://ashy-ground-044d2c50f.azurestaticapps.net |
 | Swagger UI (nuvem) | https://nutryon-f8h2e8bqa0d7gjbx.southafricanorth-01.azurewebsites.net/swagger-ui/index.html |
-| Vídeo de apresentação | [A preencher] |
+| Vídeo de apresentação | https://youtu.be/cGqSQxjYnY0 |
 | Oracle Cloud Console | https://cloud.oracle.com |
 
 ---
