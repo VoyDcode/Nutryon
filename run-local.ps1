@@ -20,7 +20,7 @@ $WALLET_PATH = "C:/oracle/wallet/NUTRYONDB"
 
 # Usuario e senha do schema Oracle Cloud
 $DB_USER = "NUTRYON"
-$DB_PASS = "SUA_SENHA_AQUI"   # Preencha com a senha do schema NUTRYON no Oracle Cloud
+$DB_PASS = "Cloud#2026Rm560087"
 
 # JWT Secret (qualquer string longa)
 $JWT = "nutryon-jwt-secret-chave-super-secreta-para-desenvolvimento-local-2026"
