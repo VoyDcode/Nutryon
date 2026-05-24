@@ -33,7 +33,7 @@ Este repositório contém o **backend** em Java Spring Boot. O frontend Angular 
 
 ## 3. Feedback anterior e correções aplicadas
 
-Na entrega anterior, o projeto funcionou corretamente e o professor afirmou que estava bem legal e tinha tudo para ser nota máxima. Porém, foram apontados quatro pontos de melhoria:
+Na entrega anterior, o projeto funcionou corretamente e o professor afirmou que estava bem legal e tinha tudo para ser nota máxima. Porém, foram apontados alguns pontos de melhoria:
 
 | Feedback recebido | Desconto | Correção aplicada |
 |---|---:|---|
